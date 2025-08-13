@@ -1,0 +1,21 @@
+<h1>HI show</h1>
+<br>
+<div class="container d-flex justify-content-center">
+    <div class="m-5 p-5 bg-info">
+      <p class="ps-3"><%= @restaurant.name  %></p>
+      <p class="ps-3"><%= @restaurant.address  %></p>
+      <p class="ps-3"><%= @restaurant.phone_number  %></p>
+      <p class="ps-3"><%= @restaurant.category  %></p>
+      <% @restaurant.reviews.each do |review| %>
+        <ul class="d-flex">
+          <li class="pe-5"><%= review.content %></li>
+          <li>Rating = <%= review.rating %></li>
+        </ul>
+      <% end %>
+    </div>
+</div>
+<%= link_to restaurants_path, class: 'text-dark text-decoration-none' do %>
+      <i class="fa-solid fa-backward btn btn-secondary"></i>
+    <% end %>
+
+<%= link_to 'Add a review', new_restaurant_review_path(@restaurant), class: 'btn btn-secondary' %>

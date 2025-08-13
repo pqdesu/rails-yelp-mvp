@@ -1,0 +1,16 @@
+<h1>HI index</h1>
+<br>
+<div class="container">
+  <% @restaurants.each do |restaurant| %>
+    <div class="m-5 bg-primary">
+      <p><%= restaurant.name  %></p>
+      <p><%= restaurant.address  %></p>
+      <p><%= restaurant.phone_number  %></p>
+      <p><%= restaurant.category  %></p>
+    </div>
+    <%= link_to restaurant.name, restaurant_path(restaurant), class: 'text-dark text-decoration-none' %>
+  <% end %>
+</div>
+<%= link_to new_restaurant_path, class: 'text-dark text-decoration-none' do %>
+      <i class="fa-solid fa-plus btn btn-secondary"></i>
+    <% end %>
